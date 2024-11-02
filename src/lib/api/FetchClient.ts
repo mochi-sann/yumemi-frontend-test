@@ -8,7 +8,7 @@ export const fetchClient = createFetchClient<paths>({
 	baseUrl: "https://yumemi-frontend-engineer-codecheck-api.vercel.app",
 
 	headers: {
-		"X-API-KEY": import.meta.env["VITE_X-API-KEY"],
+		"X-API-KEY": import.meta.env.VITE_X_API_KEY,
 	},
 });
 export const $api = createClient(fetchClient);

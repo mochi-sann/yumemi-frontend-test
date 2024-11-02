@@ -1,4 +1,5 @@
 import { $api } from "../../lib/api/FetchClient";
+import { CheckBox } from "../ui/CheckBox";
 
 export type MainPageProps = null;
 
@@ -14,6 +15,13 @@ export const MainPage: React.FC<MainPageProps> = (props) => {
 		<div>
 			<p>hello world</p>
 			<h2>APP TITLE: {JSON.stringify(data)}</h2>
+			<div>
+				{data.result.map((value) => (
+					<div key={value.prefCode}>
+						<CheckBox name={value.prefName} />
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

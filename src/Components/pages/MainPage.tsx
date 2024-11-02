@@ -1,9 +1,7 @@
 import { $api } from "../../lib/api/FetchClient";
 import { CheckBox } from "../ui/CheckBox";
 
-export type MainPageProps = null;
-
-export const MainPage: React.FC<MainPageProps> = (props) => {
+export const MainPage: React.FC = () => {
 	const { data, error, isLoading } = $api.useQuery(
 		"get",
 		"/api/v1/prefectures",
@@ -18,7 +16,10 @@ export const MainPage: React.FC<MainPageProps> = (props) => {
 			<div>
 				{data.result.map((value) => (
 					<div key={value.prefCode}>
-						<CheckBox name={value.prefName} />
+						<CheckBox
+							name={value.prefName}
+							prefCode={value.prefCode.toString()}
+						/>
 					</div>
 				))}
 			</div>

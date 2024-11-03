@@ -12,10 +12,12 @@
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"test": "vitest",
-		"coverage": "vitest run --coverage"
+		"coverage": "vitest run --coverage",
+		"generate": "tsr watch"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.59.16",
+		"@tanstack/react-router": "^1.78.2",
 		"openapi-fetch": "^0.13.0",
 		"openapi-react-query": "^0.2.4",
 		"openapi-typescript": "^7.4.2",
@@ -33,6 +35,8 @@
 		"@storybook/react": "^8.4.1",
 		"@storybook/react-vite": "^8.4.1",
 		"@storybook/test": "^8.4.1",
+		"@tanstack/router-devtools": "^1.78.2",
+		"@tanstack/router-plugin": "^1.78.2",
 		"@types/react": "^18.3.12",
 		"@types/react-dom": "^18.3.1",
 		"@vitejs/plugin-react-swc": "^3.5.0",

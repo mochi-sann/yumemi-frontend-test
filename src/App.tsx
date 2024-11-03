@@ -1,5 +1,5 @@
+import { Layout } from "./Components/layouts/Layout";
 import { MainPage } from "./Components/pages/MainPage";
-import { Layout } from "./Components/ui/Layout";
 
 function App() {
 	return (

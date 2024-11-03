@@ -1,5 +1,5 @@
 import { $api } from "../../lib/api/FetchClient";
-import { CheckBox } from "../ui/CheckBox";
+import { CheckBoxListPage } from "../ui/CheckBoxListPage";
 
 export const MainPage: React.FC = () => {
 	const { data, error, isLoading } = $api.useQuery(
@@ -13,16 +13,7 @@ export const MainPage: React.FC = () => {
 		<div>
 			<p>hello world</p>
 			<h2>APP TITLE: {JSON.stringify(data)}</h2>
-			<div>
-				{data.result.map((value) => (
-					<div key={value.prefCode}>
-						<CheckBox
-							name={value.prefName}
-							prefCode={value.prefCode.toString()}
-						/>
-					</div>
-				))}
-			</div>
+			<CheckBoxListPage prefList={data.result} />
 		</div>
 	);
 };

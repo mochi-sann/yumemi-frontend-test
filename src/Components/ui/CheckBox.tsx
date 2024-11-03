@@ -12,7 +12,7 @@ export type CheckBoxProps = {
 export const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	return (
 		<div>
-			<label className="inline-flex items-center ">
+			<label className="inline-flex items-center gap-1">
 				{props.name}
 				<input
 					className="w-4 h-4  border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"

@@ -1,5 +1,5 @@
 import type React from "react";
-import { css, cva } from "../../../../styled-system/css";
+import { css } from "../../../../styled-system/css";
 
 export type CheckBoxProps = {
 	name: string;

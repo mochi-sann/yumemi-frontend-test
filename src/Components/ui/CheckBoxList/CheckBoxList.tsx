@@ -1,12 +1,12 @@
 import type React from "react";
-import type { components } from "../../lib/openai/schema";
-import { CheckBox } from "./CheckBox";
+import type { components } from "../../../lib/openai/schema";
+import { CheckBox } from "../CheckBox/CheckBox";
 
 export type CheckBoxListPageProps = {
 	prefList: Array<components["schemas"]["Prefecture"]>;
 };
 
-export const CheckBoxListPage: React.FC<CheckBoxListPageProps> = (props) => {
+export const CheckBoxList: React.FC<CheckBoxListPageProps> = (props) => {
 	return (
 		<div>
 			{" "}

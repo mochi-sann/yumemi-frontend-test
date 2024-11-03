@@ -1,5 +1,5 @@
 import { $api } from "../../lib/api/FetchClient";
-import { CheckBoxListPage } from "../ui/CheckBoxListPage";
+import { CheckBoxList } from "../ui/CheckBoxList/CheckBoxList";
 
 export const MainPage: React.FC = () => {
 	const { data, error, isLoading } = $api.useQuery(
@@ -11,7 +11,7 @@ export const MainPage: React.FC = () => {
 	if (error) return `エラーが発生しました: ${error}`;
 	return (
 		<div>
-			<CheckBoxListPage prefList={data.result} />
+			<CheckBoxList prefList={data.result} />
 		</div>
 	);
 };

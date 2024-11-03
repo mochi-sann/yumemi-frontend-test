@@ -1,4 +1,5 @@
 import type React from "react";
+import { css } from "../../../../styled-system/css";
 
 export type CheckBoxProps = {
 	name: string;
@@ -12,10 +13,21 @@ export type CheckBoxProps = {
 export const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	return (
 		<div>
-			<label className="inline-flex items-center gap-1">
+			<label
+				className={css({
+					display: "inline-flex",
+					gap: 1,
+					alignItems: "center",
+				})}
+			>
 				{props.name}
 				<input
-					className="w-4 h-4  border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+					className={css({
+						w: "4",
+						h: "4",
+						borderColor: "gray.500",
+						borderRadius: "md",
+					})}
 					type="checkbox"
 					value={props.prefCode}
 					{...props.CheckBoxProps}

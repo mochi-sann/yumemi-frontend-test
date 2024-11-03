@@ -1,15 +1,44 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false, "ignore": ["src/routeTree.gen.ts"] },
-	"formatter": { "enabled": true, "indentStyle": "tab" },
-	"organizeImports": { "enabled": true },
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"src/routeTree.gen.ts",
+			"tsconfig.app.json",
+			"tsconfig.json",
+			"tsconfig.node.json"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
 	"linter": {
 		"enabled": true,
-		"rules": { "recommended": false },
-		"ignore": ["dist"]
+		"rules": {
+			"recommended": false
+		},
+		"ignore": [
+			"dist",
+			"tsconfig.app.json",
+			"tsconfig.json",
+			"tsconfig.node.json",
+			"biome.json"
+		]
 	},
-	"javascript": { "formatter": { "quoteStyle": "double" } },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
 	"overrides": [
 		{
 			"include": ["**/*.{ts,tsx}"],
@@ -74,7 +103,12 @@
 				}
 			}
 		},
-		{ "include": ["**/*.{ts,tsx}"], "javascript": { "globals": [] } },
+		{
+			"include": ["**/*.{ts,tsx}"],
+			"javascript": {
+				"globals": []
+			}
+		},
 		{
 			"include": ["**/*.{ts,tsx}"],
 			"linter": {
@@ -112,12 +146,17 @@
 			"include": ["**/*.{ts,tsx}"],
 			"linter": {
 				"rules": {
-					"complexity": { "noUselessTypeConstraint": "error" },
+					"complexity": {
+						"noUselessTypeConstraint": "error"
+					},
 					"correctness": {
 						"noUnusedVariables": "error",
 						"useArrayLiterals": "off"
 					},
-					"style": { "noNamespace": "error", "useAsConstAssertion": "error" },
+					"style": {
+						"noNamespace": "error",
+						"useAsConstAssertion": "error"
+					},
 					"suspicious": {
 						"noExplicitAny": "error",
 						"noExtraNonNullAssertion": "error",

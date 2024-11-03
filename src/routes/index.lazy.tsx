@@ -1,4 +1,5 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { css } from "../../styled-system/css";
 import { MainPage } from "../Components/pages/MainPage";
 
 export const Route = createLazyFileRoute("/")({
@@ -7,7 +8,11 @@ export const Route = createLazyFileRoute("/")({
 
 function Index() {
 	return (
-		<div className="p-2">
+		<div
+			className={css({
+				p: 2,
+			})}
+		>
 			<MainPage />
 		</div>
 	);

@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"lint": "eslint .",
+		"lint:ci": "biome ci . ",
+		"lint": "biome ci . ",
 		"preview": "vite preview",
 		"format": "biome format  --write ./src",
 		"storybook": "storybook dev -p 6006",

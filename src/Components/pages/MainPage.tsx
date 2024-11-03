@@ -11,8 +11,6 @@ export const MainPage: React.FC = () => {
 	if (error) return `エラーが発生しました: ${error}`;
 	return (
 		<div>
-			<p>hello world</p>
-			<h2>APP TITLE: {JSON.stringify(data)}</h2>
 			<CheckBoxListPage prefList={data.result} />
 		</div>
 	);

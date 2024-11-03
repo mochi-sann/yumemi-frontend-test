@@ -1,5 +1,5 @@
-import { css, cva } from "@styled-system/css";
 import type React from "react";
+import { css, cva } from "../../../../styled-system/css";
 
 export type CheckBoxProps = {
 	name: string;
@@ -36,15 +36,3 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
 		</div>
 	);
 };
-export const CheckBoxStyle = cva({
-	base: {
-		display: "flex",
-	},
-	variants: {
-		color: {},
-		size: {
-			lg: { fontSize: "24px", padding: "8" },
-			sm: { fontSize: "12px", padding: "4" },
-		},
-	},
-});

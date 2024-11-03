@@ -1,4 +1,5 @@
 import type React from "react";
+import { css } from "../../../../styled-system/css";
 import type { components } from "../../../lib/openai/schema";
 import { CheckBox } from "../CheckBox/CheckBox";
 
@@ -10,7 +11,16 @@ export const CheckBoxList: React.FC<CheckBoxListPageProps> = (props) => {
 	return (
 		<div>
 			{" "}
-			<div className="flex flex-wrap flex-row gap-x-4 gap-y-2">
+			<div
+				className={css({
+					display: "flex",
+					rowGap: "4",
+					columnGap: "2",
+					flexDir: "row",
+					flexWrap: "wrap",
+					justifyContent: "left",
+				})}
+			>
 				{props.prefList.map((value) => (
 					<div key={value.prefCode}>
 						<CheckBox

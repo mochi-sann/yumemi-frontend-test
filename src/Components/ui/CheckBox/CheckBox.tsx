@@ -4,6 +4,9 @@ import { css } from "../../../../styled-system/css";
 export type CheckBoxProps = {
 	name: string;
 	prefCode: string;
+	onclick: (id: number, checked: boolean) => void;
+	value: boolean;
+	defalutValue: boolean;
 	CheckBoxProps?: React.DetailedHTMLProps<
 		React.InputHTMLAttributes<HTMLInputElement>,
 		HTMLInputElement

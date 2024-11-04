@@ -5,6 +5,9 @@ import { CheckBox } from "../CheckBox/CheckBox";
 
 export type CheckBoxListPageProps = {
 	prefList: Array<components["schemas"]["Prefecture"]>;
+	addChecked: (prefCode: number) => void;
+	deleteChecked: (prefCode: number) => void;
+	checedList: number[];
 };
 
 export const CheckBoxList: React.FC<CheckBoxListPageProps> = (props) => {
@@ -24,8 +27,16 @@ export const CheckBoxList: React.FC<CheckBoxListPageProps> = (props) => {
 				{props.prefList.map((value) => (
 					<div key={value.prefCode}>
 						<CheckBox
+							checed={props.checedList.includes(value.prefCode)}
 							name={value.prefName}
 							prefCode={value.prefCode.toString()}
+							onClick={(prefCode, checked) => {
+								if (!checked) {
+									props.deleteChecked(prefCode);
+								} else {
+									props.addChecked(prefCode);
+								}
+							}}
 						/>
 					</div>
 				))}

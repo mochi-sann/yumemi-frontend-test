@@ -6,12 +6,7 @@ export type CheckBoxProps = {
 	name: string;
 	prefCode: string;
 	onClick: (prefCode: number, checked: boolean) => void;
-	defalutChecked: boolean;
 	checed: boolean;
-	CheckBoxProps?: React.DetailedHTMLProps<
-		React.InputHTMLAttributes<HTMLInputElement>,
-		HTMLInputElement
-	>;
 };
 
 export const CheckBox: React.FC<CheckBoxProps> = (props) => {

@@ -20,6 +20,8 @@
 	"dependencies": {
 		"@tanstack/react-query": "^5.59.16",
 		"@tanstack/react-router": "^1.78.2",
+		"highcharts": "^11.4.8",
+		"highcharts-react-official": "^3.2.1",
 		"openapi-fetch": "^0.13.0",
 		"openapi-react-query": "^0.2.4",
 		"openapi-typescript": "^7.4.2",

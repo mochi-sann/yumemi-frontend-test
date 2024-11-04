@@ -14,6 +14,12 @@ importers:
       '@tanstack/react-router':
         specifier: ^1.78.2
         version: 1.78.2(@tanstack/router-generator@1.78.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      highcharts:
+        specifier: ^11.4.8
+        version: 11.4.8
+      highcharts-react-official:
+        specifier: ^3.2.1
+        version: 3.2.1(highcharts@11.4.8)(react@18.3.1)
       openapi-fetch:
         specifier: ^0.13.0
         version: 0.13.0
@@ -1729,6 +1735,15 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  highcharts-react-official@3.2.1:
+    resolution: {integrity: sha512-hyQTX7ezCxl7JqumaWiGsroGWalzh24GedQIgO3vJbkGOZ6ySRAltIYjfxhrq4HszJOySZegotEF7v+haQ75UA==}
+    peerDependencies:
+      highcharts: '>=6.0.0'
+      react: '>=16.8.0'
+
+  highcharts@11.4.8:
+    resolution: {integrity: sha512-5Tke9LuzZszC4osaFisxLIcw7xgNGz4Sy3Jc9pRMV+ydm6sYqsPYdU8ELOgpzGNrbrRNDRBtveoR5xS3SzneEA==}
 
   hookable@5.5.3:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
@@ -4305,6 +4320,13 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  highcharts-react-official@3.2.1(highcharts@11.4.8)(react@18.3.1):
+    dependencies:
+      highcharts: 11.4.8
+      react: 18.3.1
+
+  highcharts@11.4.8: {}
 
   hookable@5.5.3: {}
 

@@ -1,15 +1,14 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { act, renderHook } from "@testing-library/react";
 import { Provider } from "jotai";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
 import { $api } from "../../lib/api/FetchClient";
-import { PrefCheckedListAtom } from "../lib/jotai/prefPoplarionJotai";
 import { useSetPrefCheckbox } from "../useSetPrefCheckbox";
 
 // Mock API client and response
 vi.mock("../../lib/api/FetchClient", () => ({
 	$api: {
-		useQuery: vi.fn(),
+		useQuery: vi.fn() as Mock,
 	},
 }));
 
@@ -24,7 +23,7 @@ describe("useSetPrefCheckbox", () => {
 	beforeEach(() => {
 		// Mock the useQuery function to return some dummy data
 		vi.resetAllMocks();
-		$api.useQuery.mockReturnValue({
+		($api.useQuery as Mock).mockReturnValue({
 			data: [
 				{ code: 1, name: "Prefecture 1" },
 				{ code: 2, name: "Prefecture 2" },

@@ -1,5 +1,5 @@
 import type React from "react";
-import { container } from "../../../styled-system/patterns";
+import { container } from "../../../../styled-system/patterns";
 
 export type LayoutProps = {
 	children: React.ReactNode;

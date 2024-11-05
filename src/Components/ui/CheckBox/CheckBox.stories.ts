@@ -29,7 +29,6 @@ export const Primary: Story = {
 		name: "北海道",
 		prefCode: "1",
 		checed: false,
-		defalutChecked: false,
 	},
 };
 export const Checked: Story = {
@@ -37,6 +36,5 @@ export const Checked: Story = {
 		name: "北海道",
 		prefCode: "1",
 		checed: true,
-		defalutChecked: false,
 	},
 };

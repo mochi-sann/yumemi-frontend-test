@@ -1,6 +1,4 @@
-import { useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
-import { MdAddchart } from "react-icons/md";
 import { $api } from "../lib/api/FetchClient";
 
 export function useSetPrefCheckbox() {

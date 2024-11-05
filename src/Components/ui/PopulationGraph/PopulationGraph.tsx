@@ -35,9 +35,6 @@ export const PopulationGraph: React.FC<PopulationGraphProps> = (props) => {
 				label: {
 					connectorAllowed: false,
 				},
-
-				pointStart: 1960,
-				pointInterval: 5,
 			},
 		},
 
@@ -49,13 +46,19 @@ export const PopulationGraph: React.FC<PopulationGraphProps> = (props) => {
 				format: "{value}人",
 			},
 		},
+		xAxis: {
+			title: {
+				text: "西暦",
+			},
+		},
+
 		tooltip: {
 			shared: false,
 		},
 
 		series: props.PrefChart.map((pref) => ({
 			name: `${pref.PrefName} ${pref.label ? `: ${pref.label}` : ""}`,
-			data: pref.data.map((value) => value.value),
+			data: pref.data.map((value) => [value.year, value.value]),
 		})) as Highcharts.SeriesOptionsType[],
 	};
 	const chartComponentRef = useRef<HighchartsReact.RefObject>(null);

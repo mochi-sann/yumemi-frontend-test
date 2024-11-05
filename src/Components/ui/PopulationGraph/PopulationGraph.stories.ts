@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
 import { PopulationGraph } from "./PopulationGraph";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -24,10 +23,107 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
 	args: {
-		chartTitle: "ちゃーとたいとる",
+		chartTitle: "人口グラフ",
 		PrefChart: [
 			{
+				PrefName: "青森県",
+				label: "年少人口",
+				data: [
+					{
+						year: 1960,
+						value: 513397,
+						rate: 35.99,
+					},
+					{
+						year: 1965,
+						value: 447068,
+						rate: 31.56,
+					},
+					{
+						year: 1970,
+						value: 396883,
+						rate: 27.8,
+					},
+					{
+						year: 1975,
+						value: 380218,
+						rate: 25.89,
+					},
+					{
+						year: 1980,
+						value: 366454,
+						rate: 24.05,
+					},
+					{
+						year: 1985,
+						value: 338554,
+						rate: 22.21,
+					},
+					{
+						year: 1990,
+						value: 289082,
+						rate: 19.49,
+					},
+					{
+						year: 1995,
+						value: 252414,
+						rate: 17.04,
+					},
+					{
+						year: 2000,
+						value: 223141,
+						rate: 15.12,
+					},
+					{
+						year: 2005,
+						value: 198959,
+						rate: 13.85,
+					},
+					{
+						year: 2010,
+						value: 171842,
+						rate: 12.51,
+					},
+					{
+						year: 2015,
+						value: 148208,
+						rate: 11.33,
+					},
+					{
+						year: 2020,
+						value: 129112,
+						rate: 10.43,
+					},
+					{
+						year: 2025,
+						value: 114024,
+						rate: 9.85,
+					},
+					{
+						year: 2030,
+						value: 100253,
+						rate: 9.31,
+					},
+					{
+						year: 2035,
+						value: 87648,
+						rate: 8.82,
+					},
+					{
+						year: 2040,
+						value: 77258,
+						rate: 8.5,
+					},
+					{
+						year: 2045,
+						value: 67472,
+						rate: 8.19,
+					},
+				],
+			},
+			{
 				PrefName: "北海道",
+				label: "年少人口",
 				data: [
 					{
 						year: 1960,

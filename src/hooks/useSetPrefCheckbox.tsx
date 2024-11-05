@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useAtom } from "jotai";
 import { $api } from "../lib/api/FetchClient";
+import { PrefCheckedListAtom } from "../lib/jotai/prefPoplarionJotai";
 
 export function useSetPrefCheckbox() {
 	const query = $api.useQuery("get", "/api/v1/prefectures", {});
-	const [checkedList, setCheckedList] = useState<number[]>([]);
+	const [checkedList, setCheckedList] = useAtom(PrefCheckedListAtom);
 	const addCecked = (prefCode: number) => {
 		setCheckedList((value) => {
 			return [prefCode, ...value];

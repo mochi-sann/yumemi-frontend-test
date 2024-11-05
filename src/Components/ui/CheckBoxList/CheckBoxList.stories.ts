@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
 	args: {
-		checedList: [1, 3, 4, 8],
+		checkedList: [1, 3, 4, 8],
 		prefList: [
 			{
 				prefCode: 1,

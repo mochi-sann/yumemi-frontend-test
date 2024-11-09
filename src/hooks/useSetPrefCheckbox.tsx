@@ -25,21 +25,19 @@ export function useSetPrefCheckbox() {
 				},
 			},
 		);
-		const PrefPoplationData = PrefPoplation.data?.result.data;
-		if (PrefPoplationData != undefined) {
-			console.log(
-				...[
-					PrefPoplationData,
-					"👀 [useSetPrefCheckbox.tsx:30]: PrefPoplationData",
-				].reverse(),
-			);
+		const PrefPoplationData = PrefPoplation.data?.result.data.filter(
+			(item) => item.label == "総人口",
+		);
+		if (PrefPoplationData != undefined && query.data?.result.length) {
 			setPrefPoplation((preValue) => {
 				const newValue: prefPopulationAtomType = {
 					PrefChart: [
 						{
 							data: PrefPoplationData[0]
 								.data as prefPopulationAtomType["PrefChart"][0]["data"],
-							PrefName: "hoge",
+							PrefName: query.data.result.filter(
+								(item) => item.prefCode == prefCode,
+							)[0].prefName,
 							showGraph: true,
 							label: PrefPoplationData[0].label,
 						},

@@ -29,7 +29,12 @@ export function useSetPrefCheckbox() {
 			(item) => item.label == "総人口",
 		);
 
-		if (PrefPoplationData != undefined && query.data?.result.length) {
+		if (
+			PrefPoplationData != undefined &&
+			query.data &&
+			query.data.result &&
+			query.data.result.length
+		) {
 			setPrefPoplation((preValue) => {
 				const newValue: prefPopulationAtomType = {
 					PrefChart: [

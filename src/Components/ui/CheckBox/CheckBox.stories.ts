@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { expect, fn, userEvent, within } from "@storybook/test";
 import { CheckBox } from "./CheckBox";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -30,11 +30,21 @@ export const Primary: Story = {
 		prefCode: "1",
 		checed: false,
 	},
+	play: async ({ args, canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByRole("button"));
+		await expect(args.onClick).toHaveBeenCalled();
+	},
 };
 export const Checked: Story = {
 	args: {
 		name: "北海道",
 		prefCode: "1",
 		checed: true,
+	},
+	play: async ({ args, canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByRole("button"));
+		await expect(args.onClick).toHaveBeenCalled();
 	},
 };

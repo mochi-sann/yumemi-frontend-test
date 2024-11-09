@@ -24,6 +24,8 @@ export const MainPage: React.FC = () => {
 				addChecked={addChecked}
 			/>
 			<PopulationGraph PrefChart={prefState.PrefChart} chartTitle={"hoge"} />
+
+			<pre>{JSON.stringify({ data, checkedList, prefState }, null, 2)}</pre>
 		</div>
 	);
 };

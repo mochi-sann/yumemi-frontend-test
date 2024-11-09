@@ -114,6 +114,9 @@ importers:
       vite:
         specifier: ^5.4.10
         version: 5.4.10(@types/node@22.8.6)(lightningcss@1.25.1)
+      vite-bundle-analyzer:
+        specifier: ^0.13.0
+        version: 0.13.0
       vitest:
         specifier: ^2.1.4
         version: 2.1.4(@types/node@22.8.6)(jsdom@25.0.1)(lightningcss@1.25.1)
@@ -3765,6 +3768,9 @@ packages:
   v8-to-istanbul@9.3.0:
     resolution: {integrity: sha512-kiGUalWN+rgBJ/1OHZsBtU4rXZOfj/7rKQxULKlIzwzQSvMJUUNgPwJEEh7gU6xEVxC0ahoOBvN2YI8GH6FNgA==}
     engines: {node: '>=10.12.0'}
+
+  vite-bundle-analyzer@0.13.0:
+    resolution: {integrity: sha512-59ScOf+dCf6EmPpBiQawHf2vGVm8+kaiEwDQkMoMWMNweD4VWtxpU+voPe78z74YrIuP19RCaNCAfjP+0NOJ+A==}
 
   vite-node@2.1.4:
     resolution: {integrity: sha512-kqa9v+oi4HwkG6g8ufRnb5AeplcRw8jUF6/7/Qz1qRQOXHImG8YnLbB+LLszENwFnoBl9xIf9nVdCFzNd7GQEg==}
@@ -7921,6 +7927,8 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.25
       '@types/istanbul-lib-coverage': 2.0.6
       convert-source-map: 2.0.0
+
+  vite-bundle-analyzer@0.13.0: {}
 
   vite-node@2.1.4(@types/node@22.8.6)(lightningcss@1.25.1):
     dependencies:

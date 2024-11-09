@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-type prefPopulationAtomType = {
+export type prefPopulationAtomType = {
 	PrefChart: Array<{
 		showGraph: boolean;
 		PrefName: String;
@@ -12,6 +12,7 @@ type prefPopulationAtomType = {
 		}>;
 	}>;
 };
+
 export const prefPopulationAtom = atom<prefPopulationAtomType>({
 	PrefChart: [],
 });

@@ -3,18 +3,11 @@ import type React from "react";
 import * as Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useRef } from "react";
+import { prefPopulationAtomType } from "../../../lib/jotai/prefPoplarionJotai";
 
 export type PopulationGraphProps = {
 	chartTitle: string;
-	PrefChart: Array<{
-		PrefName: String;
-		label?: string;
-		data: Array<{
-			year: number;
-			value: number;
-			rate?: number;
-		}>;
-	}>;
+	PrefChart: prefPopulationAtomType["PrefChart"];
 };
 // The wrapper exports only a default component that at the same time is a
 // namespace for the related Props interface (HighchartsReact.Props) and
@@ -56,10 +49,16 @@ export const PopulationGraph: React.FC<PopulationGraphProps> = (props) => {
 			shared: false,
 		},
 
-		series: props.PrefChart.map((pref) => ({
-			name: `${pref.PrefName} ${pref.label ? `: ${pref.label}` : ""}`,
-			data: pref.data.map((value) => [value.year, value.value]),
-		})) as Highcharts.SeriesOptionsType[],
+		series: props.PrefChart.map((pref) => {
+			if (pref.showGraph) {
+				return {
+					name: `${pref.PrefName} ${pref.label ? `: ${pref.label}` : ""}`,
+					data: pref.data.map((value) => [value.year, value.value]),
+				};
+			} else {
+				return null;
+			}
+		}).filter((value) => value !== null) as Highcharts.SeriesOptionsType[],
 	};
 	const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 	return (

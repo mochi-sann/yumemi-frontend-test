@@ -4,6 +4,7 @@ import createClient from "openapi-react-query";
 import type { paths } from "../openai/schema";
 
 export const queryClient = new QueryClient();
+
 export const fetchClient = createFetchClient<paths>({
 	baseUrl: "https://yumemi-frontend-engineer-codecheck-api.vercel.app",
 

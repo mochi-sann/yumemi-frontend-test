@@ -1,5 +1,6 @@
+import { ImCheckboxChecked } from "@react-icons/all-files/im/ImCheckboxChecked";
+import { ImCheckboxUnchecked } from "@react-icons/all-files/im/ImCheckboxUnchecked";
 import type React from "react";
-import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { css } from "../../../../styled-system/css";
 
 export type CheckBoxProps = {

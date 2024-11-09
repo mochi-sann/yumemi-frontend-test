@@ -28,11 +28,13 @@ export function useSetPrefCheckbox() {
 		const PrefPoplationData = PrefPoplation.data?.result.data.filter(
 			(item) => item.label == "総人口",
 		);
+
 		if (PrefPoplationData != undefined && query.data?.result.length) {
 			setPrefPoplation((preValue) => {
 				const newValue: prefPopulationAtomType = {
 					PrefChart: [
 						{
+							prefCode: prefCode,
 							data: PrefPoplationData[0]
 								.data as prefPopulationAtomType["PrefChart"][0]["data"],
 							PrefName: query.data.result.filter(
@@ -49,6 +51,17 @@ export function useSetPrefCheckbox() {
 		}
 	};
 	const deleteChecked = (prefCode: number) => {
+		setPrefPoplation((preValue) => {
+			const newValue = preValue.PrefChart.map((element) => {
+				if (element.prefCode === prefCode) {
+					element.showGraph = false;
+				}
+				return element;
+			});
+			return {
+				PrefChart: newValue,
+			};
+		});
 		setCheckedList((value) => {
 			return value.filter((code) => code !== prefCode);
 		});

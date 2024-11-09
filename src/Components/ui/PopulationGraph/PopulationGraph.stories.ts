@@ -26,6 +26,7 @@ export const Primary: Story = {
 		chartTitle: "人口グラフ",
 		PrefChart: [
 			{
+				prefCode: 2,
 				showGraph: true,
 				PrefName: "青森県",
 				label: "年少人口",
@@ -123,6 +124,7 @@ export const Primary: Story = {
 				],
 			},
 			{
+				prefCode: 3,
 				showGraph: true,
 				PrefName: "北海道",
 				label: "年少人口",
@@ -227,6 +229,7 @@ export const ShowOnlyHokkaido: Story = {
 		chartTitle: "人口グラフ",
 		PrefChart: [
 			{
+				prefCode: 2,
 				showGraph: false,
 				PrefName: "青森県",
 				label: "年少人口",
@@ -324,6 +327,7 @@ export const ShowOnlyHokkaido: Story = {
 				],
 			},
 			{
+				prefCode: 3,
 				showGraph: true,
 				PrefName: "北海道",
 				label: "年少人口",

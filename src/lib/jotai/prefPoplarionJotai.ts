@@ -2,6 +2,7 @@ import { atom } from "jotai";
 
 export type prefPopulationAtomType = {
 	PrefChart: Array<{
+		prefCode: number;
 		showGraph: boolean;
 		PrefName: String;
 		label?: string;

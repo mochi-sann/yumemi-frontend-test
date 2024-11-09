@@ -1,9 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { act, renderHook } from "@testing-library/react";
-import { Provider, useAtom } from "jotai";
+import { Provider } from "jotai";
 import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
 import { $api, fetchClient } from "../../lib/api/FetchClient";
-import { prefPopulationAtom } from "../../lib/jotai/prefPoplarionJotai";
 import { useSetPrefCheckbox } from "../useSetPrefCheckbox";
 
 // Mock API client and response
@@ -168,34 +167,16 @@ describe("useSetPrefCheckbox", () => {
 
 		expect(result.current.checkedList).toEqual([3]);
 	});
-	it("adds a prefCode to the checkedList and check atom", () => {
-		const { result } = renderHook(() => useSetPrefCheckbox(), { wrapper });
-		const { result: AtomResult } = renderHook(() =>
-			useAtom(prefPopulationAtom),
-		);
-
-		act(() => {
-			result.current.addChecked(3);
-		});
-		console.log(
-			...[
-				AtomResult,
-				"👀 [useSetPrefCheckbox.test.tsx:436]: AtomResult",
-			].reverse(),
-		);
-
-		expect(result.current.checkedList).toEqual([3]);
-	});
 	it("adds a prefCode to the checkedList", () => {
 		const { result } = renderHook(() => useSetPrefCheckbox(), { wrapper });
 
 		act(() => {
+			result.current.addChecked(1);
+			result.current.addChecked(2);
 			result.current.addChecked(3);
-			result.current.addChecked(4);
-			result.current.addChecked(5);
 		});
 
-		expect(result.current.checkedList.sort()).toEqual([3, 4, 5]);
+		expect(result.current.checkedList.sort()).toEqual([1, 2, 3]);
 	});
 
 	it("deletes a prefCode from the checkedList", () => {

@@ -11,11 +11,6 @@ export function useSetPrefCheckbox() {
 	const query = $api.useQuery("get", "/api/v1/prefectures", {});
 	const [checkedList, setCheckedList] = useAtom(PrefCheckedListAtom);
 	const [_, setPrefPoplation] = useAtom(prefPopulationAtom);
-	if (query.isSuccess) {
-		console.log(
-			...[query.data, "👀 [useSetPrefCheckbox.tsx:15]: query"].reverse(),
-		);
-	}
 	const addCecked = async (prefCode: number) => {
 		setCheckedList((value) => {
 			return removeDuplicates([prefCode, ...value]);
@@ -47,9 +42,9 @@ export function useSetPrefCheckbox() {
 							prefCode: prefCode,
 							data: PrefPoplationData[0]
 								.data as prefPopulationAtomType["PrefChart"][0]["data"],
-							PrefName: query.data.result.filter(
-								(item) => item.prefCode == prefCode,
-							)[0].prefName,
+							PrefName:
+								query.data.result.filter((item) => item.prefCode == prefCode)[0]
+									.prefName || "",
 							showGraph: true,
 							label: PrefPoplationData[0].label,
 						},

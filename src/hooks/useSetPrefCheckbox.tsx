@@ -36,21 +36,34 @@ export function useSetPrefCheckbox() {
 			query.data.result.length
 		) {
 			setPrefPoplation((preValue) => {
-				const newValue: prefPopulationAtomType = {
-					PrefChart: [
-						{
-							prefCode: prefCode,
-							data: PrefPoplationData[0]
-								.data as prefPopulationAtomType["PrefChart"][0]["data"],
-							PrefName:
-								query.data.result.filter((item) => item.prefCode == prefCode)[0]
-									.prefName || "",
-							showGraph: true,
-							label: PrefPoplationData[0].label,
-						},
-						...preValue.PrefChart,
-					],
-				};
+				let newValue: prefPopulationAtomType;
+				if (preValue.PrefChart.some((item) => item.prefCode == prefCode)) {
+					newValue = {
+						PrefChart: preValue.PrefChart.map((element) => {
+							if (element.prefCode === prefCode) {
+								element.showGraph = true;
+							}
+							return element;
+						}),
+					};
+				} else {
+					newValue = {
+						PrefChart: [
+							{
+								prefCode: prefCode,
+								data: PrefPoplationData[0]
+									.data as prefPopulationAtomType["PrefChart"][0]["data"],
+								PrefName:
+									query.data.result.filter(
+										(item) => item.prefCode == prefCode,
+									)[0].prefName || "",
+								showGraph: true,
+								label: PrefPoplationData[0].label,
+							},
+							...preValue.PrefChart,
+						],
+					};
+				}
 				return newValue;
 			});
 		}

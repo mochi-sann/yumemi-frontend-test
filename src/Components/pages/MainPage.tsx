@@ -23,9 +23,10 @@ export const MainPage: React.FC = () => {
 				deleteChecked={deleteChecked}
 				addChecked={addChecked}
 			/>
-			<PopulationGraph PrefChart={prefState.PrefChart} chartTitle={"hoge"} />
-
-			<pre>{JSON.stringify({ data, checkedList, prefState }, null, 2)}</pre>
+			<PopulationGraph
+				PrefChart={prefState.PrefChart}
+				chartTitle={"都道府県人口グラフ"}
+			/>
 		</div>
 	);
 };

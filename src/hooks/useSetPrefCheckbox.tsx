@@ -10,45 +10,50 @@ import { removeDuplicates } from "../utils/removeDuplicates";
 export function useSetPrefCheckbox() {
 	const query = $api.useQuery("get", "/api/v1/prefectures", {});
 	const [checkedList, setCheckedList] = useAtom(PrefCheckedListAtom);
-	const [_, setPrefPoplation] = useAtom(prefPopulationAtom);
-	const addCecked = async (prefCode: number) => {
+	const [PrefPoplation, setPrefPoplation] = useAtom(prefPopulationAtom);
+	const addChecked = async (prefCode: number) => {
 		setCheckedList((value) => {
 			return removeDuplicates([prefCode, ...value]);
 		});
-		const PrefPoplation = await fetchClient.GET(
-			"/api/v1/population/composition/perYear",
-			{
-				params: {
-					query: {
-						prefCode: prefCode.toString(),
+		// 都道府県のデータが既にあったらshowGraphをtrueにする
+		if (PrefPoplation.PrefChart.some((item) => item.prefCode == prefCode)) {
+			// 既に存在する場合
+			let PrefnewValue = {
+				PrefChart: PrefPoplation.PrefChart.map((element) => {
+					if (element.prefCode === prefCode) {
+						element.showGraph = true;
+					}
+					return element;
+				}),
+			};
+			setPrefPoplation(PrefnewValue);
+		} else {
+			const PrefPoplationResponse = await fetchClient.GET(
+				"/api/v1/population/composition/perYear",
+				{
+					params: {
+						query: {
+							prefCode: prefCode.toString(),
+						},
 					},
 				},
-			},
-		);
-		const PrefPoplationData = PrefPoplation.data?.result.data.filter(
-			(item) => item.label == "総人口",
-		);
+			);
 
-		if (
-			PrefPoplationData != undefined &&
-			query.data &&
-			query.data.result &&
-			query.data.result.length
-		) {
-			setPrefPoplation((preValue) => {
-				let newValue: prefPopulationAtomType;
-				if (preValue.PrefChart.some((item) => item.prefCode == prefCode)) {
-					newValue = {
-						PrefChart: preValue.PrefChart.map((element) => {
-							if (element.prefCode === prefCode) {
-								element.showGraph = true;
-							}
-							return element;
-						}),
-					};
-				} else {
+			const PrefPoplationData = PrefPoplationResponse.data?.result.data.filter(
+				(item) => item.label == "総人口",
+			);
+			if (
+				PrefPoplationData &&
+				query.data &&
+				query.data.result &&
+				query.data.result.length
+			) {
+				setPrefPoplation((preValue) => {
+					let newValue: prefPopulationAtomType;
+					// PrefPopulationデータを使用して新しいエントリを作成
 					newValue = {
 						PrefChart: [
+							...preValue.PrefChart,
 							{
 								prefCode: prefCode,
 								data: PrefPoplationData[0]
@@ -60,14 +65,14 @@ export function useSetPrefCheckbox() {
 								showGraph: true,
 								label: PrefPoplationData[0].label,
 							},
-							...preValue.PrefChart,
 						],
 					};
-				}
-				return newValue;
-			});
+					return newValue;
+				});
+			}
 		}
 	};
+
 	const deleteChecked = (prefCode: number) => {
 		setPrefPoplation((preValue) => {
 			const newValue = preValue.PrefChart.map((element) => {
@@ -88,7 +93,7 @@ export function useSetPrefCheckbox() {
 	return {
 		query,
 		checkedList,
-		addChecked: addCecked,
+		addChecked: addChecked,
 		deleteChecked,
 	};
 }

@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { $api, fetchClient } from "../lib/api/FetchClient";
+import { PopulationGraphTypeAtom } from "../lib/jotai/PopulationGraphTypeJotai";
 import {
 	PrefCheckedListAtom,
 	prefPopulationAtom,
@@ -11,6 +12,7 @@ export function useSetPrefCheckbox() {
 	const query = $api.useQuery("get", "/api/v1/prefectures", {});
 	const [checkedList, setCheckedList] = useAtom(PrefCheckedListAtom);
 	const [PrefPoplation, setPrefPoplation] = useAtom(prefPopulationAtom);
+	const [poplationGraphType, _] = useAtom(PopulationGraphTypeAtom);
 	const addChecked = async (prefCode: number) => {
 		setCheckedList((value) => {
 			return removeDuplicates([prefCode, ...value]);
@@ -40,7 +42,7 @@ export function useSetPrefCheckbox() {
 			);
 
 			const PrefPoplationData = PrefPoplationResponse.data?.result.data.filter(
-				(item) => item.label == "総人口",
+				(item) => item.label == poplationGraphType,
 			);
 			if (
 				PrefPoplationData &&

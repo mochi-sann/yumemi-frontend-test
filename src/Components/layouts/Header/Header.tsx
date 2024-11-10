@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
 					fontWeight: "bold",
 				})}
 			>
-				Home
+				都道府県人口グラフ表示アプリ
 			</Link>{" "}
 		</div>
 	);
